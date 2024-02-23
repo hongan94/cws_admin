@@ -1,35 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import NotFoundData from '../Common/NotFoundData';
-import { getAdmins } from '../../apis/admins'; // Import the getUsers function from the API module
 
-function TableAdmin(){
-  const [admins, setAdmins] = useState([])
-
-  useEffect(() => {
-    // Function to fetch users when component mounts
-    const fetchAdmins = async () => {
-      try {
-        // Call the getUsers function from the API module
-        const adminsData = await getAdmins();
-
-        // Update state with the fetched admins
-        setAdmins(adminsData);
-      } catch (error) {
-        console.error('Error fetching admins:', error);
-      }
-    };
-
-    // Call the fetchUsers function when component mounts
-    fetchAdmins();
-  }, [])
-
+function TableAdmin({data}){
+  const admins = data
   return(
       <div className="box">
       <div className="box-body table-responsive no-padding">
         <table className="table table-hover">
           <thead>
             <tr className='count_th'>
+              <th>Id</th>
               <th>Name</th>
               <th>Phone</th>
               <th>Email</th>
@@ -43,7 +24,10 @@ function TableAdmin(){
                admins.map(cont => (
                 <tr key={cont.id}>
                   <td>
-                    <Link to={"admin/"+cont.id+'/edit'} className="btn-xs btn btn-warning">{cont.fullname}</Link>
+                    <Link to={"admin/"+cont.id+'/edit'}>{cont.id}</Link>
+                  </td>
+                  <td>
+                    <Link to={"admin/"+cont.id+'/edit'}>{cont.fullname}</Link>
                   </td>
                   <td>{cont.phone}</td>
                   <td>{cont.email}</td>

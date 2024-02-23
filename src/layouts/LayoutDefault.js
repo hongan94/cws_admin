@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import RouterDefine from "../routers/RouterDefine";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 
 function DefaultLayout(){
   return(
@@ -17,6 +18,7 @@ function DefaultLayout(){
           </div>
         </Router>
       </div>
+      <ToastContainer />
     </div>
   )
 }
