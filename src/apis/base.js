@@ -9,7 +9,7 @@ const apiClient = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': token
+    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJhZG1pbl9pZCI6MX0.9sDvwpHSRM1I8zt1tXmKak598bUfeUHDPjqQmn-jN5k'
   },
 });
 

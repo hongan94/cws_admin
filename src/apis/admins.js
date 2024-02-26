@@ -17,3 +17,31 @@ export const createAdmin = async (data) => {
     throw error;
   }
 };
+
+export const updateAdmin = async (id, data) => {
+  try {
+    const response = await apiClient.put(`/api/v1/admins/${id}`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const detailAdmin = async (id) => {
+  try {
+    const response = await apiClient.get(`/api/v1/admins/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const deleteAdmin = async (id) => {
+  try {
+    const response = await apiClient.delete(`/api/v1/admins/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

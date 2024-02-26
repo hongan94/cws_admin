@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import NotFoundData from '../Common/NotFoundData';
 
-function TableAdmin({data}){
+function TableAdmin({data, onDelete}){
   const admins = data
   return(
       <div className="box">
@@ -24,17 +24,18 @@ function TableAdmin({data}){
                admins.map(cont => (
                 <tr key={cont.id}>
                   <td>
-                    <Link to={"admin/"+cont.id+'/edit'}>{cont.id}</Link>
+                    <Link to={"/admin/"+cont.id+'/edit'}>{cont.id}</Link>
                   </td>
                   <td>
-                    <Link to={"admin/"+cont.id+'/edit'}>{cont.fullname}</Link>
+                    <Link to={"/admin/"+cont.id+'/edit'}>{cont.fullname}</Link>
                   </td>
                   <td>{cont.phone}</td>
                   <td>{cont.email}</td>
                   <td>{cont.gender}</td>
                   <td>{cont.address}</td>
                   <td className="right">
-                    <Link to={"admin/"+cont.id+'/edit'} className="btn-xs btn btn-warning">Edit</Link>
+                    <Link to={"/admin/"+cont.id+'/edit'} className="btn-xs btn btn-warning">Edit</Link>&nbsp;
+                    <button onClick={(event) => {onDelete(cont.id)}} className="btn btn-xs btn-danger">Delete</button>
                   </td>
                 </tr>
                ))
